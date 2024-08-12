@@ -1,4 +1,10 @@
+<%-- prefix : 접두사(앞에 붙는 단어/말) 
+  만약 prefix="c"    -> <c:if>
+  만약 prefix="core" -> <core:if>
+--%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -27,7 +33,7 @@
   <h3>전달 받은 파라미터를 출력하는 방법</h3>
 
   <p style="color:red;">
-    주소 뒤에 쿼리스트링(?name=홍길동&age=20)
+    주소 뒤에 쿼리스트링( ?name=홍길동&age=20 )
     직접 작성해보면서 테스트
   </p>
 
@@ -47,15 +53,16 @@
   </div>
 
   <hr><hr>
-  
+
   <h1>JSTL(Jsp Standard Tag Library)</h1>
   <pre>
     JSP에서 자주 사용하는 Java 코드를
     (if, for, 변수 선언, String 관련 메서드 ....)
 
-    <%-- <% Java %> --%>
+    <%--  <% Java코드 %>  --%>
     스크립틀릿이 아닌 HTML 태그 모양으로 작성할 수 있도록
     태그를 제공하는 라이브러리
+
 
     [라이브러리 추가 방법]
 
@@ -63,30 +70,30 @@
 
     2. 프로젝트 webapp/WEB-INF/lib 폴더에
        다운 받은 라이브러리 추가(복사, 붙여넣기)
-    
+
     3. JSTL을 사용할 JSP 파일 제일 위에
-       tahlib 추가 구문 작성 
+       taglib 추가 구문 작성(지시자)
   </pre>
+
 
   <h3>JSTL c:if문 사용해보기</h3>
 
-  <% 
-    int age = Integer.parseInt(request.getParameter("age"));
-    if(age > 20){%>
+    <% 
+      int age = Integer.parseInt(request.getParameter("age"));
+      if(age > 20){%>
 
-    <h3>성인 입니다11111</h3>
+      <h3>성인 입니다11111</h3>
 
-  <% } %>
+    <% } %>
 
   <c:if test="${param.age > 20}">
-    <h3>성인 입니다22222</h3>
-  </c:if>
-
+    <h3>성인 입니다</h3>
+  </c:if>  
   <c:if test="${param.age <= 20}">
     <h3>성인이 아닙니다</h3>
-  </c:if>
+  </c:if> 
 
-
+  
 
 </body>
 </html>

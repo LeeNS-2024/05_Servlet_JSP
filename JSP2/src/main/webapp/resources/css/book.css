@@ -1,0 +1,17 @@
+table{
+  /* table의 테두리 간격 없애기 */
+  border-collapse: collapse;
+}
+
+table td, table th{
+  padding: 5px;
+}
+
+.blank{
+  background-color: grey;
+}
+
+#btn{
+  width: 266px;
+  height: 30px;
+}
