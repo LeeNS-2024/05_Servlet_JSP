@@ -1,4 +1,4 @@
-package edu.kh.servlet.comtroller;
+package edu.kh.servlet.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -61,9 +61,9 @@ public class PracticeServlet extends HttpServlet{
 			//         응답화면의 주소 : /search
 			//		   			(현재 Servlet 매핑 주소)
 			
-		} 
+		}
 		
-		// 존재하지 않은 경우
+		// 존재하지 않은 경우 - redirect
 		else {
 			
 			// Session scope 객체 얻어오기
