@@ -9,6 +9,7 @@
 <body>
 
   <h1>${message}</h1>
+  <%--  page, request, sesstion, application / 좁 -> 넓 --%>
 <%-- 
   localhost/WEB-INT/views/success.jsp
  --%>

@@ -25,5 +25,6 @@
 
   </form>
 
+<%-- form 태그 input을 넣을 수 있고 값을 서버(tomcat)에 준다 주소는 action값 / 형식은 method 값 --%>
 </body>
 </html>

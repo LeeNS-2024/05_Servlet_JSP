@@ -17,7 +17,7 @@ public class JoinServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-
+				/*  HttpServletRequest 요청관련된 데이터들 / HttpServletResponse 응답할 수 있는 방법(기능)이 담겨있음 */
 			
 		List<Member> memberList = new ArrayList<Member>();
 		memberList.add(new Member("test01", "1234", "김테스트"));
@@ -27,12 +27,9 @@ public class JoinServlet extends HttpServlet {
 		
 		//-----------------------------------------------------------
 		
-		/*
-		 * String inputId = req.getParameter("inputId"); // 추가 int index =
-		 * memberList.indexOf(inputId); // 추가
-		 */		
-		String memberId = req.getParameter("memberId");
-		String memberPw = req.getParameter("memberPw");
+		/* 참조하는 값을 memberId로 바꿔주었음 */		
+		String memberId = req.getParameter("memberId"); // 문자열 memberID에 memberId값을 지닌 매개변수를 가져와서 대입하기를 요청
+		String memberPw = req.getParameter("memberPw"); // String 인 이유 : html은 문자열로 이루어진 애라 String으로 받아와야됨
 		String memberName = req.getParameter("memberName");
 		
 		// 존재하는 경우 
@@ -40,8 +37,8 @@ public class JoinServlet extends HttpServlet {
 			if(member.getMemberId().equals(memberId)) {
 			
 				HttpSession session = req.getSession();
-				session.setAttribute("message", memberId + "은/는 이미 존재하는 아이디 입니다.");
-				resp.sendRedirect("/");
+				session.setAttribute("message", memberId + "은/는 이미 존재하는 아이디 입니다."); // session > 브라우저가 꺼지거나 유효시간이 지나면 꺼짐 // session에 값을 담으면 redirect여도 값이 그나마 넘어감
+				resp.sendRedirect("/"); 
 				return ;
 			}
 			
@@ -53,9 +50,9 @@ public class JoinServlet extends HttpServlet {
 		memberList.add(member);
 		String message = String.format("%s/%s 님이 가입 되었습니다 (비밀번호 : %s)" ,
 										memberId, memberName, memberPw);
-		req.setAttribute("message", message);
+		req.setAttribute("message", message); // message 변수에 message 값을 넣는걸 요청
 		String path = "/WEB-INF/views/success.jsp"; // 주소 수정
-		req.getRequestDispatcher(path).forward(req, resp);
+		req.getRequestDispatcher(path).forward(req, resp); // html 방식을 쓰기 어려워서 jsp 파일로 떠넘겨서 대신 응답시키려고 forward를 사용하는 것
 	
 
 	}
