@@ -52,7 +52,8 @@ public class JoinServlet extends HttpServlet {
 										memberId, memberName, memberPw);
 		req.setAttribute("message", message); // message 변수에 message 값을 넣는걸 요청
 		String path = "/WEB-INF/views/success.jsp"; // 주소 수정
-		req.getRequestDispatcher(path).forward(req, resp); // html 방식을 쓰기 어려워서 jsp 파일로 떠넘겨서 대신 응답시키려고 forward를 사용하는 것
+		req.getRequestDispatcher(path).forward(req, resp); // html 방식을 쓰기 어려워서 jsp 파일로 떠넘겨서 
+														   // 대신 응답시키려고 forward를 사용하는 것
 	
 
 	}
